@@ -1,0 +1,8 @@
+node{
+  def mvnHome = tool name: 'maven-3', type= 'maven'
+  stage('scm checkout'){
+  git 'https://github.com/manjudevops591/my-app'
+}
+  stage('Compile-package'){
+  sh "${mvnHome}/bin/mvn package"
+}
