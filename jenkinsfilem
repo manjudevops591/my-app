@@ -1,9 +1,14 @@
 node{
   def mvnHome = tool name: 'mvn', type: 'maven'
   stage('scm checkout'){
-  git 'https://github.com/manjudevops591/my-app'
+    git 'https://github.com/manjudevops591/my-app'
 }
   stage('Compile-package'){
-  sh "${mvnHome}/bin/mvn package"
+    sh "${mvnHome}/bin/mvn package"
 }
+  stage('SonarQube Analysis') {
+    withSonarQubeEnv('sonar-6') { 
+    sh "${mvnHome}/bin/mvn sonar:sonar"
+        }
+    }
 }
