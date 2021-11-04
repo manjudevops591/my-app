@@ -5,7 +5,7 @@ node{
     git 'https://github.com/manjudevops591/my-app.git'
 }
   stage('Compile-package'){
-    sh "${mvnHome}/bin/mvn package"
+    sh "${mvnHome}/bin/mvn clean install"
 }
   stage('SonarQube Analysis') {
     withSonarQubeEnv('sonar-9') { 
