@@ -6,3 +6,4 @@ node{
   stage('Compile-package'){
   sh "${mvnHome}/bin/mvn package"
 }
+}
